@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './Popular.css'
 import Item from '../Item/Item'
+import { baseurl } from '../Url'
 
 function Popular() {
 
   const [popularProducts,setPopularProducts]=useState([])
 
   useEffect(() => {
-    fetch('http://localhost:4000/popularinwomen')
+    fetch(`${baseurl}/popularinwomen`)
         .then((response) => response.json())
         .then((data) => setPopularProducts(data))
 }, [])
